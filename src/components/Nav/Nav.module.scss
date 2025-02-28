@@ -1,0 +1,168 @@
+@use "../../styles/variables.scss" as *;
+@use "sass:color";
+
+.nav {
+    display: flex;
+    align-items: center;
+    background-color: $color-black;
+    padding: 0 30px;
+    color: $color-white;
+    position: relative;
+    z-index: 10;
+
+    .logo {
+        background-color: $color-brown;
+        font-family: $font-logo-nav;
+        color: $color-white;
+        padding: 15px 35px;
+        font-size: 36px;
+        border: 3px solid $color-black;
+        text-transform: none;
+        display: inline-block;
+        letter-spacing: 2px;
+        margin-left: 120px;
+        margin-bottom: 0px;
+        font-weight: bold;
+        box-shadow: 4px 4px 0px rgba(0, 0, 0, 1);
+    }
+
+    .navContent {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-left: auto;
+        margin-right: 30px;
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            margin-left: 15px;
+
+            a {
+                text-decoration: none;
+                font-family: $font-body;
+                color: $color-white;
+                font-size: 18px;
+                font-weight: 500;
+                transition: color 0.3s ease-in-out;
+
+                &:hover {
+                    color: $color-brown;
+                }
+            }
+
+            &:first-child a {
+                color: $color-brown;
+            }
+        }
+    }
+
+    .searchBox {
+        display: flex;
+        align-items: center;
+        background-color: $color-white;
+        padding: 0;
+        border-radius: 4px;
+        overflow: hidden;
+        height: 32px;
+
+        input {
+            padding: 6px 10px;
+            font-size: 14px;
+            border: none;
+            outline: none;
+            font-family: $font-body;
+            width: 160px;
+            height: 100%;
+        }
+
+        button {
+            background-color: #848383;
+            border: none;
+            padding: 6px 10px;
+            cursor: pointer;
+            color: $color-white;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            transition: background-color 0.3s ease-in-out;
+
+            &:hover {
+                background-color: $color-brown;
+            }
+        }
+    }
+
+    .authButton {
+        background-color: transparent;
+        color: $color-white;
+        font-size: 18px;
+        font-weight: 500;
+        border: none;
+        cursor: pointer;
+        transition: color 0.3s ease-in-out;
+        text-decoration: none;
+        padding: 5px 10px;
+
+        &:hover {
+            color: $color-brown;
+        }
+    }
+}
+@media (max-width: 767px) {
+    .nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 20px;
+        text-align: center;
+    }
+
+    .logo {
+        font-size: 30px;  // Beholder logoets stærke udseende, men lidt mindre
+        padding: 12px 30px;
+        margin: 0 auto;  // Centrerer logoet uden at ændre desktop
+        box-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
+    }
+
+    .navContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        padding: 0;
+        margin: 0;
+    }
+
+    ul li {
+        display: inline-block;
+        margin: 5px 10px;
+    }
+
+    .searchBox {
+        width: 42%;
+        max-width: 260px;
+    }
+
+    .authButton {
+        font-size: 16px; 
+        width: auto; 
+        padding: 8px 15px;
+    }
+}

@@ -1,0 +1,20 @@
+@use '../../styles/variables.scss' as *;
+
+
+.title {
+    color: $color-black;
+    font-size: 2rem; 
+    font-weight: 500; 
+    text-align: left;
+    font-family: $font-body;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px; 
+    line-height: 1.2; 
+}
+
+@media only screen and (max-width: 768px) {
+    .title {
+        font-size: 1.8rem; 
+        text-align: center; 
+    }
+}

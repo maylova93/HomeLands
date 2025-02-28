@@ -1,0 +1,71 @@
+@use "../../styles/variables.scss" as *;
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  background-color: $color-gray-light; 
+  padding: 20px;
+}
+
+.errorTitle {
+  color: $color-black;
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: left;
+  font-family: $font-body;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.errorMessage {
+  font-size: 1.2rem;
+  color: $color-black;
+  font-family: $font-body;
+  max-width: 500px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.homeButton {
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 5px;
+  color: $color-white;
+  background-color: $color-black;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+
+  &:hover {
+    background-color: darken($color-black, 10%);
+    transform: scale(1.05);
+  }
+}
+
+@media (max-width: 768px) {
+  .errorContainer {
+    padding: 20px;
+  }
+
+  .errorTitle {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .errorMessage {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .homeButton {
+    font-size: 0.9rem;
+    padding: 10px 18px;
+  }
+}

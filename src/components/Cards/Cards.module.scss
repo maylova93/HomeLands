@@ -1,0 +1,114 @@
+@use '../../styles/variables.scss' as *;
+
+.CardsContainer {
+  position: relative;
+  margin-top: -7%; 
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+}
+
+.CardsGrid {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.Card {
+  display: flex;
+  font-family: $font-body;
+  flex-direction: column;
+  justify-content: space-between;
+  background: $color-white;
+  text-align: left;
+  width: 380px;
+  height: 400px;
+  
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+  cursor: pointer;
+  overflow: hidden;
+
+  &:hover {
+    background: rgba(238, 229, 245, 0.747);
+    transform: scale(1.05);
+  }
+}
+
+.CardImage {
+  width: 90%;
+  height: 200px;
+  object-fit: cover;
+  margin: 10px auto;
+  display: block;
+}
+
+.CardContent {
+  padding: 15px;
+}
+
+.CardInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-top: 15px;
+  gap: 2px;
+}
+
+.EnergyLabel {
+  background: #00a650;
+  color: $color-white;
+  font-weight: bold;
+  padding: 3px 5px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px; 
+}
+
+.RoomInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5px; 
+}
+
+.Price {
+  color: $color-black;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .CardsGrid {
+    grid-template-columns: 1fr; 
+    gap: 20px;
+  }
+
+  .Card {
+    width: 70%;
+    height: 43vh;
+  }
+
+  .CardInfo {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .EnergyLabel {
+    min-width: 25px;
+    font-size: 0.85rem;
+    padding: 3px 6px;
+  }
+
+  .RoomInfo {
+    font-size: 0.85rem;
+    gap: 1px;
+  }
+
+  .Price {
+    font-size: 1rem;
+  }
+}

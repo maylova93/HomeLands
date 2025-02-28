@@ -1,0 +1,205 @@
+@use "../../styles/variables.scss" as *;
+
+.boligSalg {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 📌 Titel + filter-container */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap; // 📌 Sørger for, at layoutet justeres pænt på små skærme
+}
+
+/* 📌 Juster titlen helt til venstre */
+.header h1 {
+  margin: 0;
+  text-align: left;
+}
+
+/* 📌 Sorteringsmuligheder */
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  label {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  input[type="range"] {
+    width: 150px;
+    cursor: pointer;
+  }
+
+  select {
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid $color-gray-dark;
+    border-radius: 5px;
+  }
+}
+
+/* 📌 Grid-layout med 3 kort pr. række */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-content: center;
+}
+
+/* 📌 Boligkort */
+.houseCard {
+  display: flex;
+  flex-direction: column;
+  background: $color-white;
+  text-align: left;
+  width: 100%;
+  height: 380px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 10px;
+
+  &:hover {
+    background: rgba(238, 229, 245, 0.747);
+    transform: scale(1.02);
+  }
+}
+
+/* 📌 Mindre billede */
+.houseCard img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px 8px 0 0;
+}
+
+/* 📌 Info-sektion */
+.houseInfo {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* 📌 Mørkere overskrift */
+.houseCard h2 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: $color-black;
+}
+
+/* 📌 Mindre tekst */
+.houseCard p {
+  font-size: 0.9rem;
+  color: $color-gray-dark;
+  margin: 2px 0;
+}
+
+/* 📌 Container for EnergyLabel */
+.energyContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 5px;
+}
+
+/* 📌 Stil til EnergyLabel */
+.energyLabel {
+  background: #00a650;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+/* 📌 Pris */
+.price {
+  font-size: 1.1rem;
+  color: $color-black;
+  font-weight: bold;
+}
+
+/* 📌 Favorit-ikon */
+.favoriteIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $color-gray-dark;
+  transition: color 0.3s ease;
+
+  &.active {
+    color: red;
+  }
+}
+
+/* 📌 Mobilresponsivitet */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .filters {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .houseCard {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    height: auto;
+    padding-bottom: 15px;
+  }
+
+  .houseCard img {
+    height: 200px;
+  }
+
+  .houseInfo {
+    text-align: center;
+    padding: 15px;
+  }
+
+  .energyContainer {
+    justify-content: center;
+  }
+
+  .favoriteIcon {
+    top: 5px;
+    right: 5px;
+    font-size: 1.2rem;
+  }
+}

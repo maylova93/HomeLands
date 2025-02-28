@@ -1,0 +1,129 @@
+@use "../../styles/variables.scss" as *;
+
+.adminContainer {
+  width: 90%;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: $font-body;
+  text-align: left;
+  background: $background-light;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.reviewTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: $color-white;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reviewTable th {
+  background: $color-gray-dark;
+  color: $text-light;
+  padding: 12px;
+  text-align: left;
+}
+
+.reviewTable td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.9rem;
+}
+
+.reviewTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* 🔥 Mobilvenlig styling */
+@media (max-width: 768px) {
+  .adminContainer {
+    width: 95%;
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+ 
+  .reviewTable {
+    display: grid;
+    overflow-x: auto;
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .reviewTable thead {
+    display: none;
+  }
+
+  .reviewTable tr {
+    display: flex;
+    flex-direction: column;
+    background: $color-white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .reviewTable td {
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    font-size: 0.9rem;
+    border: none;
+  }
+
+  .reviewTable td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: $color-gray-dark;
+  }
+}
+
+.deleteButton {
+  background: none;
+  border: none;
+  color: $color-red;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: darken($color-red, 10%);
+    text-decoration: underline;
+  }
+}
+
+.logoutButton {
+  margin-top: 20px;
+  background: $color-black;
+  color: $color-white;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: $color-gray-dark;
+  }
+}

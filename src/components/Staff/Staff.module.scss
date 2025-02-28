@@ -1,0 +1,130 @@
+@use "../../styles/variables.scss" as *;
+
+.staffContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 20px;
+
+  .titleWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+}
+
+.staffGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-content: center;
+}
+
+.staffCard {
+  position: relative;
+  background: $color-white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    object-position: top center; // 📌 Viser hele ansigtet i billedet
+    display: block;
+  }
+
+  .info {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.95);
+
+    h3 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: $color-black;
+    }
+
+    p {
+      font-size: 1rem;
+      color: $color-gray-dark;
+    }
+  }
+
+  // 📌 Kontaktinfo synlig på mobil, hover på desktop
+  .contact {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: $color-white;
+    padding: 12px;
+    text-align: left;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+
+    p {
+      font-size: 0.9rem;
+      color: $color-white;
+      margin: 5px 15px;
+    }
+  }
+
+  &:hover .contact {
+    opacity: 1;
+  }
+}
+
+// 📌 Responsivt design
+@media (max-width: 1024px) {
+  .staffGrid {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+  .staffCard img {
+    height: 260px;
+    object-position: center center; // 📌 Centrér hele billedet
+  }
+}
+
+@media (max-width: 768px) {
+  .staffGrid {
+    grid-template-columns: 1fr; 
+    gap: 15px;
+  }
+
+  .staffCard {
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  }
+
+  .staffCard img {
+    height: 400px;
+    object-position: center center;}
+
+  .info {
+    padding: 20px;
+  }
+
+  .contact {
+    position: relative;
+    opacity: 1;
+    background: $color-gray-dark;
+    text-align: center;
+    padding: 10px;
+
+    p {
+      font-size: 0.85rem;
+    }
+  }
+}

@@ -1,0 +1,73 @@
+@use '../../styles/variables.scss' as *;
+
+.ReviewFormContainer {
+  width: 100%;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  height: 33vh;
+}
+
+.ReviewForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: #333;
+  padding: 25px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  color: $text-light;
+  text-align: left;
+  font-family: $font-body;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  input, textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid $color-gray-dark;
+    margin-top: 5px;
+    background: $color-white;
+    color: #333;
+  }
+
+  textarea {
+    min-height: 100px;
+  }
+
+  // 📌 Wrapper til at placere knappen til højre
+  .ButtonWrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 14px;
+    font-family: $font-body;
+  }
+
+
+}
+
+@media (max-width: 768px) {
+  .ReviewFormContainer {
+    padding: 20px 0;
+  }
+
+  .ReviewForm {
+    width: 90%;
+  }
+}

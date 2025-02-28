@@ -1,0 +1,83 @@
+@use '../../styles/variables.scss' as *;
+
+.FooterContainer {
+  background: $color-black;
+  color: $color-white;
+  padding: 10px 0; 
+  font-family: $font-body;
+}
+
+.FooterContent {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  gap: 50px;
+}
+
+.Logo {
+  font-size: 1.5rem;
+  font-family: $font-heading;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: $color-white;
+}
+
+.InfoWrapper {
+  display: flex;
+  gap: 15px;
+  flex-grow: 1; 
+}
+
+.Address, .Contact {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.Contact a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+}
+
+.SocialIcons {
+  display: flex;
+  gap: 10px;
+  margin-left: auto; 
+}
+
+.Icon {
+  font-size: 1.6rem;
+  background: $color-white;
+  color: $color-black;
+  padding: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.Icon:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .FooterContent {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .InfoWrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .Address, .Contact {
+    text-align: center;
+  }
+
+  .SocialIcons {
+    justify-content: center;
+  }
+}
